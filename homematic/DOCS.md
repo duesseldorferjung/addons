@@ -33,7 +33,7 @@ wired:
 hmip_enable: false
 hmip:
   - type: HMIP_CCU2
-    device: "/dev/ttyUSB0"
+    device: "/dev/ttyAMA0"
 regahss_reset: false
 ```
 
@@ -127,6 +127,18 @@ the following to the `config.txt` file on the boot partition:
 
 ```text
 dtoverlay=pi3-miniuart-bt
+```
+
+## Raspberry Pi4
+
+If you use the HM-MOD-RPI-PCB on a Raspberry Pi 4, you need to add
+the following to the `config.txt` file on the boot partition:
+*Bluetooth might not be working anymore
+```text
+enable_uart=1
+dtoverlay=pi3-miniuart-bt
+dtoverlay=uart1
+dtoverlay=disable-bt
 ```
 
 ## HmIP-RFUSB
